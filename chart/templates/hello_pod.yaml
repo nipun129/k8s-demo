@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run:  {{ .Values.spec.name }}
+  name: {{ .Values.spec.name }}
+  namespace: default
+spec:
+  containers:
+  - image: {{ .Values.spec.name }}-app
+    imagePullPolicy: Never
+    name: {{ .Values.spec.name }}

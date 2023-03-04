@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: {{ .Values.spec.name }}
+  name: {{ .Values.spec.name }}
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: {{ .Values.spec.name }}
+  type: NodePort
